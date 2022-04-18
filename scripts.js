@@ -1,5 +1,5 @@
 let mensagens = [];    
-const usuarios = []; 
+let usuarios = []; 
 
 function reconheceUsuario() { 
     const nome = document.querySelector(".telaEntrada > input").value; 
@@ -25,13 +25,15 @@ function entrarSala(response) {
 }  
 
 function erroUsuario(erro) { 
-    console.log(erro.response); 
+    console.log(erro.response.status); 
     if(erro.response.status === 400) { 
-        alert("Usuário online já existente");
+        alert("Usuário online já existente"); 
+        window.location.reload();
     }
 } 
 
-setInterval(manterConexao,5000);
+buscarMensagens();
+setInterval(manterConexao,3000);
 
 function manterConexao() { 
     const nome = document.querySelector(".telaEntrada > input").value; 
@@ -53,12 +55,11 @@ function conectado() {
     buscarMensagens();
 } 
 
-function desconectado() { 
-    console.log("usuario desconectado");
+function desconectado(erro) { 
+    console.log("usuario desconectado"); 
 } 
 
 function buscarMensagens() {  
-    console.log("atualizando");
     const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages'); 
 
     promise.then(carregaDados);  
@@ -66,13 +67,11 @@ function buscarMensagens() {
 
 function carregaDados(response) {  
     mensagens = response.data; 
-    console.log(mensagens);
     criaMensagem();
 }
 
 
-function criaMensagem () { 
-    console.log(mensagens);   
+function criaMensagem () {    
     const nome = document.querySelector(".telaEntrada > input").value;
     const lista = document.querySelector("ul"); 
     lista.innerHTML = "";  
@@ -87,7 +86,7 @@ function criaMensagem () {
         lista.innerHTML += 
             `<li class="mensagemTodos"><a>(${mensagens[i].time})</a><span>${mensagens[i].from}</span> para <span>${mensagens[i].to}</span>${mensagens[i].text}</li> 
             `;  
-        } else if(mensagens[i].type === "private_message") { 
+        } else if(mensagens[i].type === "private_message" && mensagens[i].to === nome) { 
             lista.innerHTML += 
             `<li class="mensagemPrivada"><a>(${mensagens[i].time})</a><span>${mensagens[i].from}</span> para <span>${mensagens[i].to}</span>${mensagens[i].text}</li> 
             `;  
@@ -110,17 +109,49 @@ function adicionarMensagens() {
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages",novaMensagem); 
     
     promise.then(criaMensagem());
+    promise.catch(erroEnvio);
+} 
 
-    
+function erroEnvio() { 
+    window.location.reload();
 }
 
 function participantesAtivos() { 
     console.log("Clicouuuuuuu");
     document.querySelector(".escolhaParticipantes").classList.remove("escondido"); 
-    document.querySelector(".telaDeEscolha").classList.remove("escondido");
-} 
+    document.querySelector(".telaDeEscolha").classList.remove("escondido"); 
+
+    const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants");  
+
+    promise.then(listaParticipantes); 
+}  
+
+function listaParticipantes(response) { 
+    usuarios = response.data;  
+    console.log(usuarios);
+    const lista = document.querySelector(".usuariosAtivos"); 
+    lista.innerHTML = ` 
+            <img src="imagens/Vector.png">
+            <div class="atividade" onclick="selecaoParticipantes(this)">
+            <h3>Todos</h3> 
+            <img src="imagens/ok.png" class="ok escondido">` 
+    
+    for(let i=0; i<usuarios.length; i++) { 
+        lista.innerHTML += `
+            <img src="imagens/icone.png">
+            <div class="atividade" onclick="selecaoParticipantes(this)">
+            <h3>${usuarios[i].name}</h3> 
+            <img src="imagens/ok.png" class="ok escondido">`
+    }
+
+}
 
 function selecaoParticipantes() {  
     console.log("UHULLLLL"); 
     document.querySelector(".atividade .ok").classList.toggle("escondido");
+} 
+
+function saida() { 
+    document.querySelector(".telaDeEscolha").classList.add("escondido"); 
+    document.querySelector(".escolhaParticipantes").classList.add("escondido");
 }

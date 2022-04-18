@@ -22,18 +22,27 @@
         <img src="imagens/logo 1.png"> 
         <img src="imagens/Vector.png" onclick="participantesAtivos()">
     </div> 
-    <!-- Cabeçalho --> 
+    <!-- Cabeçalho -->  
+
 
     <div class="escolhaParticipantes escondido"></div>
     <div class="telaDeEscolha escondido">
-        <div class="topo">..Escolha um contato para enviar mensagem:</div> 
+        <div class="topo">Escolha um contato para enviar mensagem:</div> 
+        
         <div class="usuariosAtivos">
-            <img src="imagens/Vector.png">
-            <div class="atividade" onclick="selecaoParticipantes()">
-                <h3>Todos</h3> 
-                <img src="imagens/ok.png" class="ok escondido">
+            
+        </div>  
+
+        <div class="topo">Escolha a Visibilidade</div>  
+        
+        <div class="privacidade">
+            <img src="imagens/cadeado.png">
+            <div class="atividade" onclick="selecaoParticipantes(this)">
+                <h3>Público</h3> 
+                <img src="imagens/ok.png" class="ok escondido"> 
             </div>
-        </div>
+        </div> 
+        <button onclick="saida()">OK</button>
     </div>
     
     <!-- Chat -->

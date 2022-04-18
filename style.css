@@ -76,7 +76,7 @@ button:hover {
 .chat { 
     background-color: #f3f3f3; 
     width: 100%; 
-    height: 1000px; 
+    height: 100%; 
     padding-top: 26px;
 }   
 
@@ -93,7 +93,7 @@ a {
 
 .mensagemTodos { 
     width: 100%; 
-    height: 50px; 
+    height: 60px; 
     background-color: rgba(255, 255, 255, 1); 
     margin-bottom: 4px;  
     border-radius: 5px; 
@@ -103,12 +103,13 @@ a {
     font-size: 14px;
     display: flex;  
     align-items: center; 
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
+    border: #000000 solid 1px;
 } 
 
 .mensagemEntrada { 
     width: 100%; 
-    height: 50px; 
+    height: 60px; 
     background-color: #DCDCDC; 
     margin-bottom: 4px;  
     border-radius: 5px; 
@@ -118,12 +119,12 @@ a {
     font-size: 14px;
     display: flex;  
     align-items: center; 
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 }   
 
 .mensagemPrivada { 
     width: 100%; 
-    height: 50px; 
+    height: 60px; 
     background-color: rgba(255, 222, 222, 1); 
     margin-bottom: 4px;  
     border-radius: 5px; 
@@ -162,17 +163,15 @@ a {
 .topo { 
     width: 100%; 
     height: 84px; 
-    padding-left: 135px;
-    padding-right: 140px;
     display: flex; 
     align-items: center; 
     justify-content: center; 
     font-weight: bold;
-} 
+}  
 
-.usuariosAtivos {
+.telaDeEscolha .usuariosAtivos {
     width: 100%; 
-    height: 36px;
+    height: 60px; 
     display: flex; 
     align-items: center;
 } 
@@ -189,11 +188,50 @@ a {
     margin-left: 20px; 
     margin-right: 10px;
     width: 23px; 
-    height: 17px;
+    height: 17px; 
+    object-fit: cover;
 }
 
 .usuariosAtivos:hover { 
     cursor: pointer;
+}  
+
+.telaDeEscolha .privacidade {
+    width: 100%; 
+    height: 80px; 
+    margin-top: 13px;
+    display: flex; 
+    align-items: center;
+} 
+
+.privacidade .atividade {  
+    width: 80%; 
+    height: 100%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+} 
+
+.privacidade img {  
+    margin-left: 20px; 
+    margin-right: 10px;
+    width: 15px; 
+    height: 20px; 
+    object-fit: cover;
+}
+
+.privacidade:hover { 
+    cursor: pointer;
+} 
+
+.telaDeEscolha button { 
+    width: 40px; 
+    height: 40px; 
+    border: none; 
+    background-color: black; 
+    color: white;  
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .enviarMensagem { 
