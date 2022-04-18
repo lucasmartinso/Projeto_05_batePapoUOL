@@ -9,7 +9,53 @@ body {
 
 * { 
     box-sizing: border-box;
+}  
+
+.telaEntrada {
+    background-color: #FFFFFF;  
+    width: 100%; 
+    height: 100%;
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    z-index: 1; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
 } 
+
+.telaEntrada img { 
+    width: 130px;
+    height: 92px; 
+    margin-bottom: 94px; 
+    margin-top: 200px;
+} 
+
+.telaEntrada > input { 
+    background-color: #FFFFFF; 
+    color: #AEAEAE;
+    width: 261px; 
+    height: 64px; 
+    font-weight: 18px; 
+    border: 1px solid #D7D7D7; 
+    display: flex; 
+    text-align: center; 
+    margin-bottom: 15px;
+} 
+
+.telaEntrada > button { 
+    border: none; 
+    width: 109px;
+    height: 45px;
+    background-color: #E7E7E7;
+    border-radius: 9px; 
+    font-weight: 18px; 
+    color: #696969;
+} 
+
+button:hover { 
+    cursor: pointer;
+}
 
 .cabecalho { 
     height: 80px; 
@@ -23,12 +69,22 @@ body {
     padding-right: 23px;
 } 
 
+.cabecalho img:hover { 
+    cursor: pointer;
+}
+
 .chat { 
     background-color: #f3f3f3; 
     width: 100%; 
     height: 1000px; 
     padding-top: 26px;
-}  
+}   
+
+span { 
+    font-weight: bold; 
+    margin-left: 4px; 
+    margin-right: 4px;
+}
 
 .mensagem { 
     width: 100%; 
@@ -38,9 +94,85 @@ body {
     border-radius: 5px; 
     padding-left: 4px; 
     padding-right: 9px; 
+    font-weight: 400,medium; 
+    font-size: 14px;
     display: flex;  
     align-items: center; 
     flex-wrap: wrap;
+} 
+
+.mensagemEntrada { 
+    width: 100%; 
+    height: 50px; 
+    background-color: #DCDCDC; 
+    margin-bottom: 4px;  
+    border-radius: 5px; 
+    padding-left: 4px; 
+    padding-right: 9px; 
+    font-weight: 400,medium; 
+    font-size: 14px;
+    display: flex;  
+    align-items: center; 
+    flex-wrap: wrap;
+} 
+
+.escolhaParticipantes { 
+    background-color: #00000099;  
+    width: 35%; 
+    height: 100%;
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    z-index: 2; 
+    display: flex; 
+    align-items: center; 
+} 
+
+.telaDeEscolha { 
+    background-color: rgba(255, 255, 255, 1); 
+    width: 65%; 
+    height: 100%;
+    position: absolute; 
+    right: 0; 
+    top: 0; 
+    z-index: 2; 
+} 
+
+.topo { 
+    width: 100%; 
+    height: 84px; 
+    padding-left: 135px;
+    padding-right: 140px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: bold;
+} 
+
+.usuariosAtivos {
+    width: 100%; 
+    height: 36px;
+    display: flex; 
+    align-items: center;
+} 
+
+.usuariosAtivos .atividade {  
+    width: 80%; 
+    height: 100%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+} 
+
+.usuariosAtivos img {  
+    margin-left: 20px; 
+    margin-right: 10px;
+    width: 23px; 
+    height: 17px;
+}
+
+.usuariosAtivos:hover { 
+    cursor: pointer;
 }
 
 .enviarMensagem { 
@@ -69,4 +201,8 @@ body {
 
 .enviarMensagem img:hover { 
     cursor: pointer;
+} 
+
+.escondido { 
+    display: none;
 }

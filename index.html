@@ -11,29 +11,49 @@
 </head>
 <body>  
 
+    <div class="telaEntrada">
+        <img src="imagens/logo 1.png"/> 
+        <input class="nome" type="text" placeholder="Digite seu nome"> 
+        <button onclick="reconheceUsuario()">Entrar</button>
+    </div> 
+
     <!-- Cabeçalho -->
     <div class="cabecalho">
         <img src="imagens/logo 1.png"> 
-        <img src="imagens/Vector.png">
+        <img src="imagens/Vector.png" onclick="participantesAtivos()">
     </div> 
     <!-- Cabeçalho --> 
 
-
+    <div class="escolhaParticipantes escondido"></div>
+    <div class="telaDeEscolha escondido">
+        <div class="topo">..Escolha um contato para enviar mensagem:</div> 
+        <div class="usuariosAtivos">
+            <img src="imagens/Vector.png">
+            <div class="atividade" onclick="selecaoParticipantes()">
+                <h3>Todos</h3> 
+                <img src="imagens/ok.png" class="ok escondido">
+            </div>
+        </div>
+    </div>
+    
     <!-- Chat -->
-    <div class="chat">
-        <div class="mensagem">oiii tudo bemmm como você está tudo bemmmm akanncjdnjcbhvdbschgc\hcbhcdhcbxh bxbhc hjbdcbjhbcjhbjcb\jcbxz hbcjbxjhbxzhjb</div> 
-        <div class="mensagem">oiii</div>
+    <div class="chat"> 
+
+        <ul>
+             
+        </ul>
     </div>  
     <!-- Chat -->  
     
 
     <!-- Rodapé -->
     <div class="enviarMensagem">
-        <input type="text" placeholder="Escreva aqui..."/>
-        <img src="imagens/Vector (1).png">
+        <input class ="caixaDeTexto" type="text" placeholder="Escreva aqui..."/>
+        <img src="imagens/Vector (1).png" onclick="criaMensagem()">
     </div> 
-    <!-- Rodapé -->
+    <!-- Rodapé --> 
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
